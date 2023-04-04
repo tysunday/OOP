@@ -1,0 +1,7 @@
+﻿  hw_04.04.2023_wallpaper.cpp
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(15,21): error C2059: синтаксическая ошибка: ]
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(19,17): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(19,17): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(36,31): error C2504: Apartment: не определен базовый класс
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(90,10): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\Header.h(93,10): warning C4244: =: преобразование "int" в "float", возможна потеря данных
