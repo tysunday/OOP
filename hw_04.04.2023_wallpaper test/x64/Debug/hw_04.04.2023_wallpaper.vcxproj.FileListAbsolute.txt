@@ -1,2 +1,3 @@
 D:\academy top\программирование\classworkHomework\OOP-main\hw_04.04.2023_wallpaper\x64\Debug\hw_04.04.2023_wallpaper.exe
 C:\Users\Admin\Desktop\hw_04.04.2023_wallpaper\x64\Debug\hw_04.04.2023_wallpaper.exe
+C:\Users\владик\Desktop\hw_04.04.2023_wallpaper test\x64\Debug\hw_04.04.2023_wallpaper.exe

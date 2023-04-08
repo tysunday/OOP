@@ -12,123 +12,136 @@
 //или нет.Атрибуты рулона : название, размеры, цена.
 #pragma once
 #include <iostream>
+#include <Windows.h>
+#include <cmath>
 using namespace std;
 
 class Room {
+
 public:
-	Room(string typeRoom, float sizeRoom, bool GlueTheCeilingOrNot)
-	{
-		typeRoom = GetTypeRoom();
-		sizeRoom = GetSizeRoom();
-		GlueTheCeilingOrNot = GetGlueTheCeilingOrNot();
-	}
+	Room(string type, int lengthRoom, int widthRoom, int heightRoom, bool glueTheCeilingOrNot) :
+		_typeRoom(type), _lengthRoom(lengthRoom), _widthRoom(widthRoom), _heigthRoom(heightRoom), _glueTheCeilingOrNot(glueTheCeilingOrNot) {}
 
-	string GetTypeRoom() {
-		return typeRoom;
-	}
-	string SetTypeRoom(string value) {
-		cout << R"(Введите какая это комната:
-		Ванная комната? Кухня? Гостиная? Спальня?)";
-		cin >> value;
-		typeRoom = value;
-	};
+	string GetType() { return _typeRoom; }
+	int GetLengthRoom() { return _lengthRoom; }
+	int GetWidthRoom() { return _widthRoom; }
+	int GetHeigthRoom() { return _heigthRoom; }
 
-	float GetSizeRoom() {
-		return sizeRoom;
-	}
-	float SetSizeRoom(float value) {
-		cout << "Введите размер комнаты: ";
-		cin >> value;
-		sizeRoom = value;
-	};
+	bool GetGlueTheCeilingOrNot() { return _glueTheCeilingOrNot; }
 
-	bool GetGlueTheCeilingOrNot() {
-		return glueTheCeilingOrNot;
-	}
-	bool SetGlueTheCeilingOrNot(bool value) {
-		cout << "Введите клеим потолок или нет? 1 - Клеим. 0 - Не клеим. \n";
-		cin >> value;
-		glueTheCeilingOrNot = value;
-	};
+
+	// member initializer list - это особый синтаксис с++
+	// при котором поля внутри тела конструктора будут инициализироваться сразу значениями переданными в параметры 
+	// конструктора что позволяет избежать лишних вычислений. Иным образом они бы сначала записывались 
+	// значениями по умолчанию, а далее уже бы перезаписывались значениями переданными в параметры конструктора.
+	// это помогает нам избежать лишних вычислений.
 
 private:
-	string typeRoom; // тип комнаты (спальня, кухня...)
-	float sizeRoom; // в квадратных метрах.
-	bool glueTheCeilingOrNot; // клеим потолок обоями?
+	string _typeRoom; // тип комнаты (спальня, кухня...)
+	int _widthRoom; // ширина комнаты
+	int _lengthRoom; // длина комнаты.
+	int _heigthRoom;
+	bool _glueTheCeilingOrNot; // клеим потолок обоями?
 };
 
 class Apartment {
-
 public:
-	Apartment (int countRoom) {
-		rooms = new Room*[countRoom];
+	void CreateRoom(int _countRoom)
+	{
+		countRoom = _countRoom;
+		rooms = new Room * [countRoom];
 		for (int i = 0; i < countRoom; i++)
 		{
 			string type;
-			float size;
-			bool glue;
-			cout << R"(Введите какая это комната:
-		Ванная комната? Кухня? Гостиная? Спальня?)";
+			int lengthRoom, heightRoom, widthRoom;
+			bool glueTheCeilingOrNot;
+			cout << "Введите название комнаты: ";
 			cin >> type;
-			cout << "Введите размер комнаты: ";
-			cin >> size;
-			cout << "Введите клеим потолок или нет? 1 - Клеим. 0 - Не клеим. \n";
-			cin >> glue;
-			rooms[i] = new Room(type, size, glue);
+			cout << "Введите длину комнаты: ";
+			cin >> lengthRoom;
+			cout << "Ширину: ";
+			cin >> widthRoom;
+			cout << "Высоту: ";
+			cin >> heightRoom;
+			cout << "Будем клеить потолок? 1 - да, 0 - нет: ";
+			cin >> glueTheCeilingOrNot;
+			rooms[i] = new Room(type, lengthRoom, widthRoom, heightRoom, glueTheCeilingOrNot);
+			cout << "\n\n";
 		}
 	}
 
-	Room* getRoom(int countRoom)
-	{
-		return rooms[countRoom];
+	int GetRoomArea(int i) {
+		int roomArea = (rooms[i]->GetHeigthRoom() * 2 + rooms[i]->GetLengthRoom() * 2) * rooms[i]->GetHeigthRoom();
+		return roomArea;
 	}
 
-	int GetCountRoom() {// получить количество комнат
-		return countRoom;
-	}
+	int GetCountRoom() { return countRoom; }
+	// кол-во комнат.
 
-	void SetCountRoom(int value) { // установить количество комнат 
-		countRoom = value;
-	};
+	Room* GetRoom(int i) { return rooms[i]; }
+	// для создания объекта.
 
 private:
 	int countRoom; // количество комнат
 	Room** rooms;
 };
 
-class Wallpaper { 
+class Wallpaper {
 public:
-	string GetNameWallpaper() {
-		return nameWallpaper;
-	}
-	string SetNameWallpaper(string value) {
-		nameWallpaper = value;
-	};
+	Wallpaper() {}
+	Wallpaper(string _nameRoll, int _lengthRoll, int _widthRoll, float _cost) :
+		nameRoll(_nameRoll), rollLength(_lengthRoll), rollWidth(_widthRoll), cost(_cost)  {}
 
-	int GetSizeWallpaper_length() {
-		return sizeWallpaper_length;
-	}
-	int SetSizeWallpaper_length(int value) {
-		sizeWallpaper_length = value;
-	};
+	void CreateWallpaper(int typeRolls)
+	{
+		arrayRolls = new Wallpaper * [typeRolls];
+		for (int i = 0; i < typeRolls; i++)
+		{
+			string nameRoll;
+			cout << "Введите название рулона: ";
+			cin >> nameRoll;
+			cout << "Введите длину рулона: ";
+			cin >> rollLength;
+			cout << "Введите ширину рулона: ";
+			cin >> rollWidth;
+			cout << "Введите стоимость рулона: ";
+			cin >> cost;
+			int roolArea = rollLength * rollWidth;
+			cout << "Площадь одного рулона = " << roolArea << endl;;
+			arrayRolls[i] = new Wallpaper(nameRoll, rollLength, rollWidth, cost);
+		}
 
-	int GetSizeWallpaper_width() {
-		return sizeWallpaper_width;
 	}
-	int SetSizeWallpaper_width(int value) {
-		sizeWallpaper_width = value;
-	};
 
-	int GetCost() {
-		return cost;
+	Wallpaper GetWallpaper(int i) { return *arrayRolls[i]; }
+	string GetNameWallpaper() { return nameRoll; }
+	int GetLengthWallpaper() { return rollLength; }
+	int GetWidthWallpaper() { return rollWidth; }
+	float GetCostWallpaper() { return cost; }
+
+	int CalculationAreaRoll()
+	{
+		cout << "Введите длину рулона: ";
+		cin >> rollLength;
+		cout << "Введите ширину рулона: ";
+		cin >> rollWidth;
+		int roolArea = rollLength * rollWidth;
+		cout << endl;
+		return roolArea;
 	}
-	int SetCost(int value) {
-		cost = value;
-	};
+
+	void CalculationCountRool(string _nameWallPaper, float _cost)
+	{
+		int roolArea;
+		roolArea = CalculationAreaRoll();
+		int countOfRools;
+	}
 
 private:
-	string nameWallpaper; // имя обоев
-	int sizeWallpaper_length; //  размер обоев длина
-	int sizeWallpaper_width; //  размер обоев ширина
+	string nameRoll; // имя обоев
+	int rollLength; //  размер обоев длина
+	int rollWidth; //  размер обоев ширина
+	Wallpaper** arrayRolls; // массив с объектами рулонов
+	int typeRolls = 5; // количество видов рулонов
 	float cost; // цена обоев
 };
