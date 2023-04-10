@@ -19,14 +19,14 @@ using namespace std;
 class Room {
 
 public:
-	Room(string type, int lengthRoom, int widthRoom, int heightRoom, bool glueTheCeilingOrNot) :
-		_typeRoom(type), _lengthRoom(lengthRoom), _widthRoom(widthRoom), _heigthRoom(heightRoom), _glueTheCeilingOrNot(glueTheCeilingOrNot) {}
+	Room(string type, int lengthRoom, int widthRoom, int heightRoom, bool glueTheCeilingOrNot, int roomArea) :
+		_typeRoom(type), _lengthRoom(lengthRoom), _widthRoom(widthRoom), _heightRoom(heightRoom), _glueTheCeilingOrNot(glueTheCeilingOrNot), _roomArea(roomArea) {}
 
 	string GetType() { return _typeRoom; }
 	int GetLengthRoom() { return _lengthRoom; }
 	int GetWidthRoom() { return _widthRoom; }
-	int GetHeigthRoom() { return _heigthRoom; }
-
+	int GetHeigthRoom() { return _heightRoom; }
+	int GetRoomArea() { return _roomArea;  }
 	bool GetGlueTheCeilingOrNot() { return _glueTheCeilingOrNot; }
 
 
@@ -34,14 +34,14 @@ public:
 	// при котором поля внутри тела конструктора будут инициализироваться сразу значениями переданными в параметры 
 	// конструктора что позволяет избежать лишних вычислений. Иным образом они бы сначала записывались 
 	// значениями по умолчанию, а далее уже бы перезаписывались значениями переданными в параметры конструктора.
-	// это помогает нам избежать лишних вычислений.
 
 private:
 	string _typeRoom; // тип комнаты (спальня, кухня...)
-	int _widthRoom; // ширина комнаты
+	int _widthRoom; // ширина комнаты.
 	int _lengthRoom; // длина комнаты.
-	int _heigthRoom;
+	int _heightRoom; // высота комнаты.
 	bool _glueTheCeilingOrNot; // клеим потолок обоями?
+	int _roomArea; // площадь комнаты.
 };
 
 class Apartment {
@@ -52,9 +52,9 @@ public:
 		rooms = new Room * [countRoom];
 		for (int i = 0; i < countRoom; i++)
 		{
-			string type;
-			int lengthRoom, heightRoom, widthRoom;
-			bool glueTheCeilingOrNot;
+			string type = "";
+			int lengthRoom = 0, heightRoom = 0, widthRoom = 0, roomArea = 0;
+			bool glueTheCeilingOrNot = 0;
 			cout << "Введите название комнаты: ";
 			cin >> type;
 			cout << "Введите длину комнаты: ";
@@ -63,16 +63,12 @@ public:
 			cin >> widthRoom;
 			cout << "Высоту: ";
 			cin >> heightRoom;
+			roomArea = (lengthRoom * heightRoom) + (widthRoom * heightRoom);
 			cout << "Будем клеить потолок? 1 - да, 0 - нет: ";
 			cin >> glueTheCeilingOrNot;
-			rooms[i] = new Room(type, lengthRoom, widthRoom, heightRoom, glueTheCeilingOrNot);
+			rooms[i] = new Room(type, lengthRoom, widthRoom, heightRoom, glueTheCeilingOrNot, roomArea);
 			cout << "\n\n";
 		}
-	}
-
-	int GetRoomArea(int i) {
-		int roomArea = (rooms[i]->GetHeigthRoom() * 2 + rooms[i]->GetLengthRoom() * 2) * rooms[i]->GetHeigthRoom();
-		return roomArea;
 	}
 
 	int GetCountRoom() { return countRoom; }
@@ -82,15 +78,15 @@ public:
 	// для создания объекта.
 
 private:
-	int countRoom; // количество комнат
-	Room** rooms;
+	int countRoom; // количество комнат.
+	Room** rooms; // массив для создания объектов "комната".
 };
 
 class Wallpaper {
 public:
 	Wallpaper() {}
-	Wallpaper(string _nameRoll, int _lengthRoll, int _widthRoll, float _cost) :
-		nameRoll(_nameRoll), rollLength(_lengthRoll), rollWidth(_widthRoll), cost(_cost)  {}
+	Wallpaper(string _nameRoll, int _lengthRoll, int _widthRoll, float _cost, int _rollArea) :
+		nameRoll(_nameRoll), rollLength(_lengthRoll), rollWidth(_widthRoll), cost(_cost), rollArea(_rollArea)  {}
 
 	void CreateWallpaper(int typeRolls)
 	{
@@ -98,6 +94,8 @@ public:
 		for (int i = 0; i < typeRolls; i++)
 		{
 			string nameRoll;
+			int rollLength = 0, rollWidth = 0, rollArea = 0;
+			float cost = 0;
 			cout << "Введите название рулона: ";
 			cin >> nameRoll;
 			cout << "Введите длину рулона: ";
@@ -105,12 +103,10 @@ public:
 			cout << "Введите ширину рулона: ";
 			cin >> rollWidth;
 			cout << "Введите стоимость рулона: ";
-			cin >> cost;
-			int roolArea = rollLength * rollWidth;
-			cout << "Площадь одного рулона = " << roolArea << endl;;
-			arrayRolls[i] = new Wallpaper(nameRoll, rollLength, rollWidth, cost);
+			cin >> cost; 
+			rollArea = rollLength * rollWidth; // площадь одного рулона.
+			arrayRolls[i] = new Wallpaper(nameRoll, rollLength, rollWidth, cost, rollArea);
 		}
-
 	}
 
 	Wallpaper GetWallpaper(int i) { return *arrayRolls[i]; }
@@ -118,30 +114,14 @@ public:
 	int GetLengthWallpaper() { return rollLength; }
 	int GetWidthWallpaper() { return rollWidth; }
 	float GetCostWallpaper() { return cost; }
-
-	int CalculationAreaRoll()
-	{
-		cout << "Введите длину рулона: ";
-		cin >> rollLength;
-		cout << "Введите ширину рулона: ";
-		cin >> rollWidth;
-		int roolArea = rollLength * rollWidth;
-		cout << endl;
-		return roolArea;
-	}
-
-	void CalculationCountRool(string _nameWallPaper, float _cost)
-	{
-		int roolArea;
-		roolArea = CalculationAreaRoll();
-		int countOfRools;
-	}
+	int GetRollArea() { return rollArea; }
 
 private:
-	string nameRoll; // имя обоев
-	int rollLength; //  размер обоев длина
-	int rollWidth; //  размер обоев ширина
-	Wallpaper** arrayRolls; // массив с объектами рулонов
-	int typeRolls = 5; // количество видов рулонов
-	float cost; // цена обоев
+	string nameRoll; // имя обоев.
+	int rollLength; //  размер обоев длина.
+	int rollWidth; //  размер обоев ширина.
+	int rollArea; // площадь одного рулона обоев.
+	Wallpaper** arrayRolls; // массив с объектами рулонов.
+	int typeRolls; // количество видов рулонов.
+	float cost; // цена обоев.
 };
