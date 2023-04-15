@@ -1,0 +1,6 @@
+﻿  hw_12.04.2023_GroupOfStudents.cpp
+D:\academy top\программирование\classworkHomework\OOP-main\hw_12.04.2023_GroupOfStudents\hw_12.04.2023_GroupOfStudents.cpp(18,26): warning C4244: инициализация: преобразование "double" в "size_t", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_12.04.2023_GroupOfStudents\hw_12.04.2023_GroupOfStudents.cpp(24,32): warning C4244: инициализация: преобразование "double" в "size_t", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_12.04.2023_GroupOfStudents\hw_12.04.2023_GroupOfStudents.cpp(29,27): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_12.04.2023_GroupOfStudents\hw_12.04.2023_GroupOfStudents.cpp(58,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  hw_12.04.2023_GroupOfStudents.vcxproj -> D:\academy top\программирование\classworkHomework\OOP-main\hw_12.04.2023_GroupOfStudents\x64\Debug\hw_12.04.2023_GroupOfStudents.exe
