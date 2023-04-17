@@ -1,0 +1,6 @@
+﻿  hw_17.04.2023.cpp
+D:\academy top\программирование\classworkHomework\OOP-main\hw_17.04.2023\hw_17.04.2023.cpp(46,18): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_17.04.2023\hw_17.04.2023.cpp(61,23): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_17.04.2023\hw_17.04.2023.cpp(65,23): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+D:\academy top\программирование\classworkHomework\OOP-main\hw_17.04.2023\hw_17.04.2023.cpp(68,23): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  hw_17.04.2023.vcxproj -> D:\academy top\программирование\classworkHomework\OOP-main\hw_17.04.2023\x64\Debug\hw_17.04.2023.exe
