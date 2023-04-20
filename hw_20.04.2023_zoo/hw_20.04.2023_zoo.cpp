@@ -10,6 +10,7 @@ public:
 	Animal() {}
 
 	int CreateAnimal(string type) {
+		_type = type;
 		cout << "How much animal you wanna create?\n";
 		cin >> _count;
 		animal = new Animal * [_count];
@@ -24,10 +25,12 @@ public:
 			cout << "Input cost animal (float) \n";
 			cin >> cost;
 
-			animal[i] = new Animal(type, sex, name, cost);
+			animal[i] = new Animal(_type, sex, name, cost);
 		}
 		return _count;
 	}
+
+	string GetType() { return _type; }
 
 	void ShowInfoAboutType() {
 		cout << "Имеющиеся животные \n";
@@ -38,8 +41,9 @@ public:
 			cout << "Цена " << animal[i]->_cost << endl;
 			cout << "Пол: "; 
 			if (animal[i]->_sex == 0)
-				cout << "М";
-			else cout << "Ж";
+				cout << "М" << endl;
+			else cout << "Ж" << endl;
+			cout << "Тип: " << GetType() << endl;
 			cout << endl << endl;
 		}
 	}
@@ -54,6 +58,7 @@ private:
 	string _name;
 	float _cost;
 	int _count;
+	string _type;
 };
 
 class Zoo : public Animal {
@@ -87,8 +92,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	Zoo user;
-	user.CreateAnimalType();
-	user.ShowInfoAboutType();
+		user.CreateAnimalType();
+		user.ShowInfoAboutType();
 }
 
 
