@@ -9,4 +9,4 @@ void WriteInFile();
 
 void ReadFile();
 
-void WriteObjectFiles(Reservouir* obj[]);
+void WriteObjectInFiles(Reservouir** obj, Reservouir& x);

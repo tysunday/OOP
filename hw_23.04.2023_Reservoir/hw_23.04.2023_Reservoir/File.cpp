@@ -70,12 +70,31 @@ void RemoveFile()
 	remove(nameRemoveFile.c_str()); // c_str нужен для преобразования объекта string в С - строку т.е. указатель на массив символов типа const char*
 }
 
-void WriteObjectFiles(Reservouir* obj[]) {
+
+void WriteObjectInFiles(Reservouir** obj, Reservouir& x) {
+	string file;
+	cout << "В какой файл будем записывать информацию?\n";
+	VisionFile();
+	cin.ignore();
+	getline (cin, file);
+	//system("pause"); system("cls");
+	file = file + ".txt";
+	ofstream fout;
+	fout.open(file);
+	cout << "file = file + \".txt\"";
+	cout << "Введите номер объекта информацию о котором мы будем вносить файл:\n ";
+	x.ShowAllInfo();
 	int i = 0;
-	cout << "Введите длину какого водоёма вы хотите узнать: \n";
+	to_string(i);
 	cin >> i;
-	cout << "Длина: \n";
-	cout << obj[i]->getLength();
-	cout << obj[i]->getName();
-	cout << obj[i]->getDepth();
+	string information;
+	information += "Тип: " + obj[i]->getType() + "\n";
+	information += "Имя: " + obj[i]->getName() + "\n";
+	information += "Глубина: " + to_string(obj[i]->getDepth()) + "\n";
+	information += "Ширина: " + to_string(obj[i]->getWidth()) + "\n";
+	information += "Длина: " + to_string(obj[i]->getLength()) + "\n";
+	information += "Площадь: " + to_string(obj[i]->getSquare()) + "\n";
+	information += "Объем: " + to_string(obj[i]->getVolume()) + "\n";
+	fout << information;
+	fout.close();
 }

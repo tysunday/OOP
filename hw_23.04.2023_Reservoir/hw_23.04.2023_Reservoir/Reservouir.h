@@ -23,6 +23,10 @@ public:
 	Reservouir** getMassiveObj() { return reservouir; }
 	int getCount() { return _count; }
 
+	~Reservouir() {
+		cout << "***********************Деструктор сработал\n\n";
+	}
+
 private:
 	Reservouir** reservouir;
 
@@ -32,6 +36,6 @@ private:
 	double _square;
 	double _width;
 	double _length;
-	int _count;
+	int _count = 0;
 	double _volume;
 };

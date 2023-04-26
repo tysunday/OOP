@@ -10,28 +10,65 @@ double Reservouir::getVolume() {
 
 void Reservouir::CreateReservouir() {
 	int count = 0;
-	cout << "Сколько всего водоёмов? \n";
+	int tempCount = 0;
+	cout << "Сколько всего водоёмов вы хотите создать? \n";
 	cin >> count;
-	reservouir = new Reservouir * [count];
-	for (int i = 1; i <= count;i++)
-	{
-		cout << "Введите что это за водоём. Пруд, море, океан?\n";
-		cin >> _type;
-		cout << "Введите его название: \n";
-		cin >> _name;
-		cout << "Введите глубину: \n";
-		cin >> _depth;
-		cout << "Введите ширину: \n";
-		cin >> _width;
-		cout << "Введите длину: \n";
-		cin >> _length;
-		cout << "На основе представленных вами данных площадь водоёма приблизительно равна: \n";
-		cout << getSquare() << endl;
-		cout << "На основе представленных вами данных объём водоёма приблизительно равен: \n";
-		cout << getVolume() << endl;
+	if (_count > 0) {
+		Reservouir** TempReservouir;
+		int tempCount = _count;
+		_count += count;
+		TempReservouir = new Reservouir * [_count];
+		for (int i = 1; i <= tempCount; i++) {
+			TempReservouir[i] = reservouir[i];
+		}
 
-		reservouir[i] = new Reservouir(_type, _name, _depth, _width, _length, _square, _volume);
-		_count++;
+		for (int i = tempCount + 1; i <= tempCount + count;i++) {
+			cout << "Введите что это за водоём. Пруд, море, океан?\n";
+			cin >> _type;
+			cout << "Введите его название: \n";
+			cin >> _name;
+			cout << "Введите глубину: \n";
+			cin >> _depth;
+			cout << "Введите ширину: \n";
+			cin >> _width;
+			cout << "Введите длину: \n";
+			cin >> _length;
+			cout << "На основе представленных вами данных площадь водоёма приблизительно равна: \n";
+			cout << getSquare() << endl;
+			cout << "На основе представленных вами данных объём водоёма приблизительно равен: \n";
+			cout << getVolume() << endl;
+
+			TempReservouir[i] = new Reservouir(_type, _name, _depth, _width, _length, _square, _volume);
+		}
+		reservouir = new Reservouir * [_count];
+
+		for (int i = 1; i <= _count; i++) {
+			reservouir[i] = TempReservouir[i];
+		}
+	}
+	else {
+		reservouir = new Reservouir * [_count];
+
+		for (int i = 1; i <= count;i++)
+		{
+			cout << "Введите что это за водоём. Пруд, море, океан?\n";
+			cin >> _type;
+			cout << "Введите его название: \n";
+			cin >> _name;
+			cout << "Введите глубину: \n";
+			cin >> _depth;
+			cout << "Введите ширину: \n";
+			cin >> _width;
+			cout << "Введите длину: \n";
+			cin >> _length;
+			cout << "На основе представленных вами данных площадь водоёма приблизительно равна: \n";
+			cout << getSquare() << endl;
+			cout << "На основе представленных вами данных объём водоёма приблизительно равен: \n";
+			cout << getVolume() << endl;
+
+			reservouir[i] = new Reservouir(_type, _name, _depth, _width, _length, _square, _volume);
+			_count++;
+		}
 	}
 }
 
@@ -68,6 +105,8 @@ void Reservouir::ShowInfo() {
 void Reservouir::ShowAllInfo() {
 
 	cout << "***Информация о всех водоёмах!*** \n";
+
+	cout << "Всего водоёмов ! " << _count << endl;
 
 	for (int i = 1; i <= _count; i++) {
 		cout << "Водоём № " << i << endl;
