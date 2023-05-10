@@ -1,0 +1,68 @@
+﻿  ConsoleApplication2.cpp
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): error C2665: "std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>>::insert": ни одна перегруженная функция не может преобразовать все типы аргументов
+D:\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include\vector(1343,27): message : может быть "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::initializer_list<_Ty>)"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): message : "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::initializer_list<_Ty>)": невозможно преобразовать аргумент 1 из "int" в "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,22): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+D:\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include\vector(1069,27): message : или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Ty &&)"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): message : "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Ty &&)": невозможно преобразовать аргумент 1 из "int" в "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,22): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+D:\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include\vector(1065,27): message : или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,const _Ty &)"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): message : "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,const _Ty &)": невозможно преобразовать аргумент 1 из "int" в "std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,22): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+D:\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include\vector(1289,27): message : или       "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)"
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): message : "std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Iter,_Iter)": ожидаются аргументы 3 — 2 предоставлены
+          with
+          [
+              _Ty=std::pair<int,std::vector<std::string,std::allocator<std::string>>>
+          ]
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(64,14): message : при попытке сопоставить список аргументов "(int, const std::vector<std::string,std::allocator<std::string>>)"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(77,31): error C2065: document_words: необъявленный идентификатор
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(77,5): error C2530: word: ссылки должны быть инициализированы
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(77,29): error C2143: синтаксическая ошибка: отсутствие ";" перед ":"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(77,45): error C2143: синтаксическая ошибка: отсутствие ";" перед ")"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(97,5): error C2440: return: невозможно преобразовать "std::vector<int,std::allocator<int>>" в "std::vector<std::pair<int,int>,std::allocator<std::pair<int,int>>>"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(97,5): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(108,9): error C2660: AddDocument: функция не принимает 3 аргументов
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(60,6): message : см. объявление "AddDocument"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(108,9): message : при попытке сопоставить список аргументов "(std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>, const std::set<std::string,std::less<std::string>,std::allocator<std::string>>, std::string)"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,42): error C2664: "std::vector<std::pair<int,int>,std::allocator<std::pair<int,int>>> FindDocuments(const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>> &,const std::set<std::string,std::less<std::string>,std::allocator<std::string>> &,const std::string &)": невозможно преобразовать аргумент 1 из "std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>" в "const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>> &"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,43): message : Причина: невозможно преобразовать "std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>" в "const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>>"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,43): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(86,23): message : см. объявление "FindDocuments"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,42): message : при попытке сопоставить список аргументов "(std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>, const std::set<std::string,std::less<std::string>,std::allocator<std::string>>, const std::string)"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,5): error C3531: document_id: символ, тип которого содержит спецификатор 'auto' должен иметь инициализатор
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,27): error C2143: синтаксическая ошибка: отсутствие ";" перед ":"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,29): error C2664: "std::vector<std::pair<int,int>,std::allocator<std::pair<int,int>>> FindDocuments(const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>> &,const std::set<std::string,std::less<std::string>,std::allocator<std::string>> &,const std::string &)": невозможно преобразовать аргумент 1 из "std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>" в "const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>> &"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,43): message : Причина: невозможно преобразовать "std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>" в "const std::vector<std::pair<int,std::vector<std::string,std::allocator<std::string>>>,std::allocator<std::pair<int,std::vector<std::string,std::allocator<std::string>>>>>"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,43): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(86,23): message : см. объявление "FindDocuments"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,29): message : при попытке сопоставить список аргументов "(std::vector<std::vector<std::string,std::allocator<std::string>>,std::allocator<std::vector<std::string,std::allocator<std::string>>>>, const std::set<std::string,std::less<std::string>,std::allocator<std::string>>, const std::string)"
+D:\Visual Studio Project\test\ConsoleApplication2\ConsoleApplication2.cpp(112,72): error C2143: синтаксическая ошибка: отсутствие ";" перед ")"
