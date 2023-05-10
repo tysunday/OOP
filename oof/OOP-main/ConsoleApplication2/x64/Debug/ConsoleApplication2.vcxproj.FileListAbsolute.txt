@@ -1,0 +1,2 @@
+D:\Visual Studio Project\test\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe
+C:\Users\Моё Счастье\Desktop\oof\OOP-main\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe
