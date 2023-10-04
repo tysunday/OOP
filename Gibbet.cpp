@@ -11,25 +11,25 @@ using namespace std;
 class Gibbet
 {
 private:
-    ifstream file;
-    string word;
-    unordered_set<char> guess;
-    static const vector<string> hangmanArt;
+    ifstream file;               // Поток для чтения файла
+    string word;                 // Слово для угадывания
+    unordered_set<char> guess;   // Угаданные символы
+    static const vector<string> hangmanArt;  // ASCII искусство для виселицы
 
 public:
     Gibbet() = default;
     explicit Gibbet(const string& f_) : file(f_), word(istream_iterator<char>(file), istream_iterator<char>())
     {
-        Play();
+        Play();  // Начать игру
     }
 
-    void Play();
+    void Play();  // Функция для игры
 };
 
 void Gibbet::Play()
 {
-    int maxAttempts = hangmanArt.size() - 1;
-    int attempts = 0;
+    int maxAttempts = hangmanArt.size() - 1;  // Максимальное количество попыток
+    int attempts = 0;  // Текущее количество попыток
 
     while (attempts < maxAttempts)
     {
@@ -38,10 +38,10 @@ void Gibbet::Play()
         for (char c : word)
         {
             if (guess.find(c) != guess.end())
-                cout << c;
+                cout << c;  // Если буква угадана, выводим её
             else
             {
-                cout << "#";
+                cout << "#";  // Если буква не угадана, выводим #
                 allGuessed = false;
             }
         }
@@ -95,19 +95,19 @@ void Gibbet::Play()
 }
 
 const vector<string> Gibbet::hangmanArt = {
-    "_________\n|       |\n|\n|\n|\n|\n|",
-    "_________\n|       |\n|       O\n|\n|\n|\n|",
-    "_________\n|       |\n|       O\n|       |\n|       |\n|\n|",
-    "_________\n|       |\n|       O\n|      \\|\n|       |\n|\n|",
-    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|\n|",
-    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|      /\n|",
-    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|      / \\\n|" };
+    "_________\n|       |\n|\n|\n|\n|\n|",  // Пустая виселица
+    "_________\n|       |\n|       O\n|\n|\n|\n|",  // Первая стадия: голова
+    "_________\n|       |\n|       O\n|       |\n|       |\n|\n|",  // Вторая стадия: голова и туловище
+    "_________\n|       |\n|       O\n|      \\|\n|       |\n|\n|",  // Третья стадия: голова, туловище, и одна нога
+    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|\n|",  // Четвертая стадия: голова, туловище, и две ноги
+    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|      / \\\n|",  // Пятая стадия: голова, туловище, две ноги, и одна рука
+    "_________\n|       |\n|       O\n|      \\|/\n|       |\n|      / \\\n|" };  // Шестая стадия: голова, туловище, две ноги, и две руки
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    string fileName = "wordlist.txt";
-    Gibbet g(fileName);
+    setlocale(LC_ALL, "Russian");  // Установка русской локали для корректного вывода
+    string fileName = "wordlist.txt";  // Имя файла со словами
+    Gibbet g(fileName);  // Создание объекта игры
 
     return 0;
 }
